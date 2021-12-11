@@ -2,7 +2,7 @@
   display: flex;
   max-width: 700px;
   flex-direction: column;
-  border-radius: 20px;
+  border-radius: 10px;
   box-shadow: 2px 2px 20px rgba(0,0,0,0.2);
   padding: 40px;
   margin: 40px auto;
@@ -14,7 +14,7 @@
   box-sizing: border-box !important;
   margin-bottom: 20px;
   border: 2px solid rgb(22, 130, 202);
-  border-radius: 20px;
+  border-radius: 10px;
 }
 
 .form button{
@@ -25,11 +25,13 @@
   background-color: rgb(22, 130, 202);
   color: white;
   border: none;
-  border-radius: 20px;
+  border-radius: 10px;
   cursor: pointer;
+  transition: all 0.1s ease-in-out;
 }
 
 .form button:hover{
-  background-color: rgb(35, 112, 163);
-  color: white;
+  background-color: white;
+  color: rgb(35, 112, 163);
+  border: 2px solid;
 }

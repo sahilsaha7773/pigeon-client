@@ -3,6 +3,7 @@ import styles from '../styles/create.module.css';
 import loginillu from '../images/loginillu3.svg';
 import { Link, useNavigate } from 'react-router-dom';
 import apiConfig from '../utils/apiConfig';
+import { SyncLoader } from 'react-spinners';
 
 function Create() {
   let navigate = useNavigate();
@@ -10,6 +11,7 @@ function Create() {
   const [isLoading, setIsLoading] = React.useState(false);
 
   React.useEffect(() => {
+    document.title = 'Create | Pigeon';
     if (localStorage.getItem('token')) {
       navigate('/')
     }
@@ -47,9 +49,18 @@ function Create() {
       }} />
       <h2>Get anonymous messages from your friends and family</h2>
       <h3 style={{ fontWeight: 'normal' }}>You can never know who messaged you!🔮</h3>
-      <input type="text" placeholder="Your Name" value={name} onChange={(e) => setName(e.target.value)} />
-      <button onClick={handleCreate}>Create Your Link <span style={{ marginLeft: '5px' }}>😎</span></button>
-      <p>Already have a link? <Link to='/login'>Login here</Link></p>
+      {
+        isLoading ?
+          <div style={{ textAlign: 'center', margin: "40px 0" }}>
+            <SyncLoader color="rgb(22, 130, 202)" />
+          </div> :
+          <div>
+            <input type="text" placeholder="Your Name" value={name} onChange={(e) => setName(e.target.value)} />
+            <button onClick={handleCreate}>Create Your Link <span style={{ marginLeft: '5px' }}>😎</span></button>
+            <p>Already have a link? <Link to='/login'>Login here</Link></p>
+          </div>
+      }
+
     </div>
   )
 }

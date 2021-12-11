@@ -12,7 +12,8 @@ function UserInfo({
   }, []);
   return (
     <div className={styles.card}>
-      <h1>User Info</h1>
+      <h1>User Info 🔷</h1>
+      <h2>{user.name}</h2>
       <hr />
       <p><span className={styles.id}
         style={{ marginRight: "8px" }}>ID: </span><span className={styles.id}>{id}</span></p>
@@ -42,7 +43,7 @@ function UserInfo({
           display: "flex",
         }}
           className={styles.cpbtn}
-          onClick={navigator.clipboard?.writeText(`${window.location.origin}/#/message/${id}`)}>
+          onClick={(e) => { navigator.clipboard?.writeText(`${window.location.origin}/#/message/${id}`); alert("Link copied to clipboard!") }}>
           Copy <i class="fa fa-copy" style={{ marginLeft: "5px" }}></i>
         </button>
       </div>
@@ -53,7 +54,7 @@ function UserInfo({
         marginLeft: "5px"
       }}></i>
       </button>
-      <button className={styles.fbbtn}>Share on Facebook <i class="fa fa-facebook"></i></button>
+      {/* <button className={styles.fbbtn}>Share on Facebook <i class="fa fa-facebook"></i></button> */}
     </div>
   )
 }

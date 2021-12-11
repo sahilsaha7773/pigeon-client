@@ -6,7 +6,7 @@
   padding: 20px 40px;
 }
 .id {
-  background: #06c906;
+  background: #2b9b55;
   color: white;
   border: none;
   padding: 10px;
@@ -26,9 +26,10 @@
 }
 
 .cpbtn:hover {
-  background: rgb(30, 107, 158) !important;
+  background: white !important;
+  border: 2px solid rgb(30, 107, 158) !important;
   cursor: pointer;
-  color: white;
+  color: rgb(30, 107, 158) !important;
 }
 
 .wpbtn {

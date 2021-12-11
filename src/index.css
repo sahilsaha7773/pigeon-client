@@ -12,6 +12,13 @@ body {
 html, body, #root, .App {
   height: 100%
 }
+.grow{
+  transition: all .2s ease-in-out;
+}
+.grow:hover {
+  transform: scale(1.5);
+  cursor: pointer;
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;

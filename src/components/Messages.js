@@ -1,4 +1,5 @@
 import React from 'react'
+import { SyncLoader } from 'react-spinners';
 import styles from '../styles/messages.module.css';
 import apiConfig from '../utils/apiConfig';
 
@@ -21,6 +22,7 @@ function Messages() {
   const [refresh, setRefresh] = React.useState(false);
 
   React.useEffect(() => {
+    setIsLoading(true);
     fetch(apiConfig.url + '/message/get', {
       method: 'GET',
       headers: {
@@ -41,6 +43,28 @@ function Messages() {
         setIsLoading(false);
       });
   }, [refresh]);
+
+  const handleDelete = (id) => {
+    if (window.confirm("Are you sure you want to delete this message?")) {
+      setIsLoading(true);
+      fetch(apiConfig.url + '/message/delete/' + id, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer ' + localStorage.getItem('token')
+        },
+      })
+        .then(res => res.json())
+        .then(res => {
+          console.log(res);
+          if (res.success) {
+            setRefresh(!refresh);
+          } else {
+            setIsLoading(false);
+          }
+        })
+    }
+  }
   return (
     <div className={styles.card}>
       <div style={{
@@ -54,29 +78,46 @@ function Messages() {
       <hr style={{
         marginBottom: "30px"
       }} />
-      {messages.length===0 && <p>You don't have any new messages, share the above link with your friends</p>}
-      {
-        messages?.map(message => {
-          var date = new Date(message.createdAt);
-          return (
-            <div key={message._id} style={{
-              backgroundColor: GetRandomColor(),
-              padding: '20px',
-              borderRadius: '10px',
-              color: 'white',
-              margin: '20px 0'
-            }}>
-              <p style={{
-                fontSize: '20px',
-              }}>{message.text}</p>
-              <p style={{
-                textAlign: 'right',
-              }}>{date.getHours()}:{date.getMinutes()}<br />{date.getDate()}/{date.getMonth() + 1}/{date.getFullYear()}</p>
-            </div>
-          )
-        })
+      {isLoading ? <div style={{ textAlign: "center", margin: "40px 0" }}>
+        <SyncLoader color="rgb(22, 130, 202)" />
+      </div> :
+        <div>
+          {messages.length === 0 && <p>Share the above link with your friends to recieve messages 🚀</p>}
+          {
+            messages?.map(message => {
+              var date = new Date(message.createdAt);
+              return (
+                <div key={message._id} style={{
+                  backgroundColor: GetRandomColor(),
+                  padding: '20px',
+                  borderRadius: '10px',
+                  color: 'white',
+                  margin: '20px 0'
+                }}>
+                  <p style={{
+                    fontSize: '20px',
+                  }}>{message.text}</p>
+                  <div style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                  }}>
+                    <div className="grow" onClick={(e) => handleDelete(message._id)}>
+                      <i class="fa fa-trash-o" style={{
+                        fontSize: "20px"
+                      }}></i>
+                    </div>
+                    <p style={{
+                      textAlign: 'right',
+                    }}>{date.getHours()}:{date.getMinutes()}<br />{date.getDate()}/{date.getMonth() + 1}/{date.getFullYear()}</p>
+                  </div>
+                </div>
+              )
+            })
 
-      }
+          }
+        </div>}
+
     </div>
   )
 }

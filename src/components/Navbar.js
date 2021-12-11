@@ -26,7 +26,7 @@ function Navbar() {
       }} onClick={() => navigate('/')}>Pigeon</h1>
       {loggedIn ? (
         <button style={{
-          padding: '15px 40px',
+          padding: '15px',
           borderRadius: '10px',
           border: '2px solid',
           fontWeight: 'bold',
@@ -34,10 +34,12 @@ function Navbar() {
           color: 'rgb(22 130 202)'
         }} onClick={(e) => {
           e.preventDefault();
-          localStorage.removeItem('token');
-          localStorage.removeItem('user');
-          setLoggedIn(false);
-          navigate('/login');
+          if (window.confirm('Don\'t forget to take a note of your login credentials before logging out')) {
+            localStorage.removeItem('token');
+            localStorage.removeItem('user');
+            setLoggedIn(false);
+            navigate('/login');
+          }
         }}>Logout</button>
       ) : (
         <div>

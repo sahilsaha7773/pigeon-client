@@ -8,7 +8,8 @@ function Home() {
   const [user, setUser] = React.useState();
   let navigate = useNavigate();
   React.useEffect(async () => {
-    console.log(localStorage.getItem('token'));
+    document.title = 'Inbox | Pigeon';
+    //console.log(localStorage.getItem('token'));
     if (localStorage.getItem('token') === null) {
       navigate('/login');
     } else {
@@ -17,7 +18,7 @@ function Home() {
   }, []);
   return (
     <div>
-     
+
       <UserInfo id={user?._id} password={user?.password} />
       <Messages />
     </div>
