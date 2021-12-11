@@ -65,8 +65,7 @@ function SendMessage() {
           </div>}
       </div>
       <div className={styles.form}>
-        <h2> Message your friend anonymously, they will never know who sent the message.😎
-          This website is just for fun. Do not go out of your way to spread hate.🙅‍♂️🙅‍♀️</h2>
+        <h2>This website is just for fun. Do not go out of your way to spread hate.🙅‍♂️🙅‍♀️</h2>
       </div>
     </div>
   )

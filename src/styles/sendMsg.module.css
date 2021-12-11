@@ -35,3 +35,19 @@
   color: rgb(35, 112, 163);
   border: 2px solid;
 }
+
+@media only screen and (max-width: 1200px){
+  /*Tablets [601px -> 1200px]*/
+}
+@media only screen and (max-width: 600px){
+/*Big smartphones [426px -> 600px]*/
+  .form{
+    margin:20px;
+  }
+}
+@media only screen and (max-width: 425px){
+/*Small smartphones [325px -> 425px]*/
+  .form{
+    margin:20px;
+  }
+}

@@ -48,7 +48,7 @@ function UserInfo({
         </button>
       </div>
       <button className={styles.wpbtn} onClick={(e) => {
-        window.open(`whatsapp://send?text=✉%EF%B8%8F💬💌%0D%0ASend+Secret+Message+to+me+🤩!+I+will+never+know+who+sent+me+which+message.+%0D%0AIt%27s+fun!+Try+here+👉+https://pigeon.rocks/%23/message/${id}`)
+        window.open(`whatsapp://send?text=✉%EF%B8%8F💬💌%0D%0ASend+secret+message+to+me+🤩!+I+will+never+know+who+is+the+sender.+%0D%0AIt%27s+fun!+Try+here+👉+https://pigeon.rocks/%23/message/${id}`)
       }}>Share on WhatsApp <i class="fa fa-whatsapp" style={{
         fontSize: "24px",
         marginLeft: "5px"
