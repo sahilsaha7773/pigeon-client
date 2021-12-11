@@ -82,7 +82,7 @@ function Messages() {
         <SyncLoader color="rgb(22, 130, 202)" />
       </div> :
         <div>
-          {messages.length === 0 && <p>Share the above link with your friends to recieve messages 🚀</p>}
+          {messages.length === 0 && <p>Share the above link with your friends to receive messages 🚀</p>}
           {
             messages?.map(message => {
               var date = new Date(message.createdAt);
