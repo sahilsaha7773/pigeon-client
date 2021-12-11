@@ -15,7 +15,7 @@ function Create() {
     if (localStorage.getItem('token')) {
       navigate('/')
     }
-  }, []);
+  }, [navigate]);
 
   const handleCreate = async (e) => {
     e.preventDefault();
@@ -43,7 +43,7 @@ function Create() {
   }
   return (
     <div className={styles.card}>
-      <img src={loginillu} style={{
+      <img src={loginillu} alt="Illustration" style={{
         width: '50%',
         margin: '20px auto'
       }} />

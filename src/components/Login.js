@@ -16,7 +16,7 @@ function Login() {
     if (localStorage.getItem('token')) {
       navigate('/');
     }
-  }, []);
+  }, [navigate]);
   const handleLogin = async (e) => {
     e.preventDefault();
     setIsLoading(true);
@@ -47,7 +47,7 @@ function Login() {
   }
   return (
     <div className={styles.loginForm}>
-      <img src={loginillu} style={{
+      <img src={loginillu} alt="Illustration" style={{
         width: '50%',
         margin: '20px auto'
       }} />

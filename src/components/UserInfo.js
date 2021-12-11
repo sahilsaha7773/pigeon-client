@@ -43,12 +43,12 @@ function UserInfo({
           display: "flex",
         }}
           className={styles.cpbtn}
-          onClick={(e) => { navigator.clipboard?.writeText(`${window.location.origin}/#/message/${id}`); alert("Link copied to clipboard!") }}>
+          onClick={(e) => { copy(`${window.location.origin}/#/message/${id}`); alert("Link copied to clipboard!") }}>
           Copy <i class="fa fa-copy" style={{ marginLeft: "5px" }}></i>
         </button>
       </div>
       <button className={styles.wpbtn} onClick={(e) => {
-        window.open(`whatsapp://send?text=✉%EF%B8%8F💬💌%0D%0ASend+Secret+Message+to+${user.name}🤩+I+will+never+know+who+sent+me+which+message+🤔%0D%0AIt%27s+fun%2C+Try+here+👉+${window.location.origin}/#/message/${id}`)
+        window.open(`whatsapp://send?text=✉%EF%B8%8F💬💌%0D%0ASend+Secret+Message+to+me+🤩!+I+will+never+know+who+sent+me+which+message.+%0D%0AIt%27s+fun!+Try+here+👉+https://pigeon.rocks/%23/message/${id}`)
       }}>Share on WhatsApp <i class="fa fa-whatsapp" style={{
         fontSize: "24px",
         marginLeft: "5px"

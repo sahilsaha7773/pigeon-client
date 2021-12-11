@@ -1,11 +1,9 @@
 import './App.css';
-import { VechaiProvider, Button } from "@vechaiui/react";
 import Login from './components/Login';
 import {
   HashRouter as Router,
   Routes,
   Route,
-  HashRouter
 } from "react-router-dom";
 import Home from './pages/Home';
 import SendMessage from './pages/SendMessage';

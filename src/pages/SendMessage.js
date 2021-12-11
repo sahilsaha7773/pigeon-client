@@ -1,8 +1,6 @@
 import React from 'react'
 import { useNavigate, useParams } from 'react-router-dom';
 import { SyncLoader } from 'react-spinners';
-import Create from '../components/Create';
-import Login from '../components/Login';
 import styles from '../styles/sendMsg.module.css';
 import apiConfig from '../utils/apiConfig';
 
@@ -16,7 +14,7 @@ function SendMessage() {
     if (localStorage.getItem('token')) {
       navigate('/');
     }
-  }, []);
+  }, [navigate]);
   const handleSend = async (e) => {
     // console.log(id);
     e.preventDefault();
