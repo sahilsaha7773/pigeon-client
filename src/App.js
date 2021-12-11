@@ -1,23 +1,31 @@
-import logo from './logo.svg';
 import './App.css';
-
+import { VechaiProvider, Button } from "@vechaiui/react";
+import Login from './components/Login';
+import {
+  HashRouter as Router,
+  Routes,
+  Route,
+  HashRouter
+} from "react-router-dom";
+import Home from './pages/Home';
+import SendMessage from './pages/SendMessage';
+import Navbar from './components/Navbar';
+import Create from './components/Create';
+import Footer from './components/Footer';
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+      <Router>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/create" element={<Create />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/message/:id" element={<SendMessage />} />
+        </Routes>
+        <Footer />
+      </Router>
     </div>
   );
 }

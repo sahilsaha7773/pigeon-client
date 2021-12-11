@@ -1,0 +1,26 @@
+.card {
+  max-width: 700px;
+  box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.2);
+  padding: 20px 40px;
+  margin: 20px auto;
+  border-radius: 20px;
+}
+.ref:hover {
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 1200px){
+  /*Tablets [601px -> 1200px]*/
+}
+@media only screen and (max-width: 600px){
+/*Big smartphones [426px -> 600px]*/
+  .card{
+    margin:20px;
+  }
+}
+@media only screen and (max-width: 425px){
+/*Small smartphones [325px -> 425px]*/
+  .card{
+    margin:20px;
+  }
+}

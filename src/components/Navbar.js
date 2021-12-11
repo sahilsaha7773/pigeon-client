@@ -1,0 +1,73 @@
+import React from 'react'
+import { useNavigate } from 'react-router-dom';
+import styles from '../styles/navbar.module.css';
+
+function Navbar() {
+  let navigate = useNavigate();
+  const [loggedIn, setLoggedIn] = React.useState(false);
+  React.useEffect(() => {
+    if (localStorage.getItem('token')) {
+      setLoggedIn(true);
+    }
+  }, []);
+  return (
+    <div style={{
+      display: 'flex',
+      justifyContent: 'space-around',
+      boxShadow: '2px 2px 10px rgb(0,0,0,0.1)',
+      padding: '0 40px',
+      alignItems: 'center',
+    }} className={styles.nav}>
+      <h1 style={{
+        borderRadius: '5px',
+        padding: '10px',
+        backgroundColor: 'rgb(22 130 202)',
+        color: 'white',
+      }} onClick={() => navigate('/')}>Pigeon</h1>
+      {loggedIn ? (
+        <button style={{
+          padding: '15px 40px',
+          borderRadius: '10px',
+          border: '2px solid',
+          fontWeight: 'bold',
+          background: 'white',
+          color: 'rgb(22 130 202)'
+        }} onClick={(e) => {
+          e.preventDefault();
+          localStorage.removeItem('token');
+          localStorage.removeItem('user');
+          setLoggedIn(false);
+          navigate('/login');
+        }}>Logout</button>
+      ) : (
+        <div>
+          <button style={{
+            padding: '15px',
+            borderRadius: '10px',
+            border: '2px solid',
+            background: 'white',
+            color: 'rgb(22 130 202)',
+            marginRight: '10px',
+            fontWeight: 'bold',
+          }} onClick={(e) => {
+            e.preventDefault();
+            navigate('/login');
+          }}>Login</button>
+          <button style={{
+            padding: '15px',
+            borderRadius: '10px',
+            border: '2px solid',
+            fontWeight: 'bold',
+            background: 'white',
+            color: 'rgb(22 130 202)'
+          }} onClick={(e) => {
+            e.preventDefault();
+            navigate('/create');
+          }}>Sign Up</button>
+        </div>
+      )}
+    </div>
+  )
+}
+
+export default Navbar

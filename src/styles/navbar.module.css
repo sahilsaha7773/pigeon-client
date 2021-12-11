@@ -1,0 +1,30 @@
+.nav h1:hover {
+  cursor: pointer;
+  background-color: rgb(33, 103, 149) !important;
+}
+
+.nav button:hover {
+  background-color: rgb(22 130 202) !important;
+  color: white !important;
+  cursor: pointer;
+}
+
+.nav button {
+  transition: all 0.3s ease-in-out;
+}
+
+@media only screen and (max-width: 1200px){
+  /*Tablets [601px -> 1200px]*/
+}
+@media only screen and (max-width: 600px){
+/*Big smartphones [426px -> 600px]*/
+  .nav {
+    justify-content: space-between !important;
+  }
+}
+@media only screen and (max-width: 425px){
+/*Small smartphones [325px -> 425px]*/
+.nav {
+  justify-content: space-between  !important;
+}
+}
