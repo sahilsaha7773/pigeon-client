@@ -12,9 +12,10 @@ function SendMessage() {
   React.useEffect(() => {
     document.title = 'Send Message | Pigeon';
     if (localStorage.getItem('token')) {
-      navigate('/');
+      if (JSON.parse(localStorage.getItem('user'))._id === id)
+        navigate('/');
     }
-  }, [navigate]);
+  }, [navigate, id]);
   const handleSend = async (e) => {
     // console.log(id);
     e.preventDefault();
