@@ -15,8 +15,8 @@ function UserInfo({
       <h1>User Info 🔷</h1>
       <h2>{user.name}</h2>
       <hr />
-      <p><span className={styles.id}
-        style={{ marginRight: "8px" }}>ID: </span><span className={styles.id}>{id}</span></p>
+      <p><span className={`${styles.id} ${styles.id2}`}
+        style={{ marginRight: "8px" }}>ID: </span><span className={`${styles.id}`}>{id}</span></p>
       <p><span className={styles.pass}
         style={{ marginRight: "8px" }}>PASSWORD: </span><span className={styles.pass}>{password}</span></p>
       <div style={{

@@ -72,9 +72,11 @@ function Messages() {
         alignItems: "center",
         justifyContent: "space-between",
       }}>
-        <h1>Your Messages</h1>
+        <h1 style={{ marginBottom: "0" }}>Your Messages</h1>
         <i class={`fa fa-refresh ${styles.ref}`} style={{ fontSize: "30px" }} onClick={(e) => setRefresh(!refresh)}></i>
       </div>
+
+      <p>{messages.length} messages</p>
       <hr style={{
         marginBottom: "30px"
       }} />
