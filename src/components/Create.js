@@ -19,6 +19,10 @@ function Create() {
 
   const handleCreate = async (e) => {
     e.preventDefault();
+    if (name.length === 0) {
+      alert('Please enter a name');
+      return;
+    }
     setIsLoading(true);
     fetch(apiConfig.url + '/user/create', {
       method: 'POST',

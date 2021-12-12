@@ -19,6 +19,10 @@ function Login() {
   }, [navigate]);
   const handleLogin = async (e) => {
     e.preventDefault();
+    if (username === '' || password === '') {
+      alert('Please fill in all fields');
+      return;
+    }
     setIsLoading(true);
     fetch(apiConfig.url + '/user/login', {
       method: 'POST',
