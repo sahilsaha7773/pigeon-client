@@ -32,14 +32,42 @@ function Messages() {
     })
       .then(res => res.json())
       .then(res => {
-        console.log(res);
+        //console.log(res);
         if (res.success) {
           setMessages(res.data);
+          setIsLoading(false);
         }
-        setIsLoading(false);
+        else {
+          if (res.message === "auth token is not valid") {
+            fetch(apiConfig.url + '/user/login', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify({
+                id: JSON.parse(localStorage.getItem('user'))._id,
+                password: JSON.parse(localStorage.getItem('user')).password
+              })
+            })
+              .then(res => res.json())
+              .then(res => {
+                if (res.success) {
+                  localStorage.setItem('token', res.data.token);
+                  localStorage.setItem('user', JSON.stringify(res.data.user));
+                  setIsLoading(false);
+                } else {
+                  setIsLoading(false);
+                  alert(res.message);
+                }
+              })
+              .catch(err => {
+                //console.log(err);
+              })
+          }
+        }
       })
       .catch(err => {
-        console.log(err);
+        //console.log(err);
         setIsLoading(false);
       });
   }, [refresh]);
@@ -56,7 +84,7 @@ function Messages() {
       })
         .then(res => res.json())
         .then(res => {
-          console.log(res);
+          // console.log(res);
           if (res.success) {
             setRefresh(!refresh);
           } else {

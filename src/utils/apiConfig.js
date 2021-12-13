@@ -1,4 +1,4 @@
 const data = {
-  url: 'https://pigeon-backend.herokuapp.com',
+  url: 'https://chill-jolly-skiff.glitch.me',
 };
 export default data;
