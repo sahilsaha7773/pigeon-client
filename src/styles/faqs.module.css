@@ -1,0 +1,50 @@
+.card {
+  display: flex;
+  max-width: 700px;
+  flex-direction: column;
+  border-radius: 20px;
+  box-shadow: 2px 2px 20px rgba(0,0,0,0.2);
+  padding: 40px;
+  margin: 40px auto;
+}
+
+.ques p{
+  
+  font-size: 20px;
+}
+.ques {
+  border-bottom: 2px solid rgb(159, 193, 216);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.ques div i {
+  font-size: 20px;
+  color: rgb(22, 130, 202);
+}
+.active {
+  color: rgb(22, 130, 202);
+  font-weight: bold;
+}
+.ans {
+  font-size: 18px;
+}
+.ques:hover {
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 1200px){
+  /*Tablets [601px -> 1200px]*/
+}
+@media only screen and (max-width: 600px){
+/*Big smartphones [426px -> 600px]*/
+  .card{
+    margin:20px;
+  }
+}
+@media only screen and (max-width: 425px){
+/*Small smartphones [325px -> 425px]*/
+  .card{
+    margin:20px;
+  }
+}

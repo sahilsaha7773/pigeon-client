@@ -1,5 +1,6 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
+import FAQs from '../components/FAQs';
 import Messages from '../components/Messages';
 import UserInfo from '../components/UserInfo';
 
@@ -20,6 +21,7 @@ function Home() {
 
       <UserInfo id={user?._id} password={user?.password} />
       <Messages />
+      <FAQs />
     </div>
   )
 }

@@ -4,6 +4,7 @@ import apiConfig from '../utils/apiConfig';
 import { Link, useNavigate } from "react-router-dom";
 import loginillu from '../images/loginillu3.svg';
 import { SyncLoader } from 'react-spinners';
+import FAQs from './FAQs';
 
 function Login() {
   let navigate = useNavigate();
@@ -46,32 +47,35 @@ function Login() {
         }
       })
       .catch(err => {
-       // console.log(err);
+        // console.log(err);
       })
   }
   return (
-    <div className={styles.loginForm}>
-      <img src={loginillu} alt="Illustration" style={{
-        width: '50%',
-        margin: '20px auto'
-      }} />
-      <h2>Login to view your messages 📬</h2>
-      {isLoading ?
-        <div style={{ textAlign: 'center', margin: "40px 0" }}>
-          <SyncLoader color="rgb(22, 130, 202)" />
-        </div> :
-        <div>
-          <input type="text" placeholder="Username"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)} />
-          <input type="password" placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)} />
-          <button onClick={handleLogin}>Login</button>
-          <p>Don't have an account or forgot the credentials? <Link to='/create'>Create one.</Link></p>
-        </div>}
+    <>
+      <div className={styles.loginForm}>
+        <img src={loginillu} alt="Illustration" style={{
+          width: '50%',
+          margin: '20px auto'
+        }} />
+        <h2>Login to view your messages 📬</h2>
+        {isLoading ?
+          <div style={{ textAlign: 'center', margin: "40px 0" }}>
+            <SyncLoader color="rgb(22, 130, 202)" />
+          </div> :
+          <div>
+            <input type="text" placeholder="Username"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)} />
+            <input type="password" placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)} />
+            <button onClick={handleLogin}>Login</button>
+            <p>Don't have an account or forgot the credentials? <Link to='/create'>Create one.</Link></p>
+          </div>}
 
-    </div>
+      </div>
+      <FAQs />
+    </>
   )
 }
 

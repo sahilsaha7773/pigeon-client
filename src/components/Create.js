@@ -4,6 +4,7 @@ import loginillu from '../images/loginillu3.svg';
 import { Link, useNavigate } from 'react-router-dom';
 import apiConfig from '../utils/apiConfig';
 import { SyncLoader } from 'react-spinners';
+import FAQs from './FAQs';
 
 function Create() {
   let navigate = useNavigate();
@@ -46,26 +47,24 @@ function Create() {
       })
   }
   return (
-    <div className={styles.card}>
+    <><div className={styles.card}>
       <img src={loginillu} alt="Illustration" style={{
         width: '50%',
         margin: '20px auto'
       }} />
       <h2>Get anonymous messages from your friends and family</h2>
       <h3 style={{ fontWeight: 'normal' }}>You can never know who messaged you!🔮</h3>
-      {
-        isLoading ?
-          <div style={{ textAlign: 'center', margin: "40px 0" }}>
-            <SyncLoader color="rgb(22, 130, 202)" />
-          </div> :
-          <div>
-            <input type="text" placeholder="Your Name" value={name} onChange={(e) => setName(e.target.value)} />
-            <button onClick={handleCreate}>Create Your Link <span style={{ marginLeft: '5px' }}>😎</span></button>
-            <p>Already have a link? <Link to='/login'>Login here</Link></p>
-          </div>
-      }
+      {isLoading ?
+        <div style={{ textAlign: 'center', margin: "40px 0" }}>
+          <SyncLoader color="rgb(22, 130, 202)" />
+        </div> :
+        <div>
+          <input type="text" placeholder="Your Name" value={name} onChange={(e) => setName(e.target.value)} />
+          <button onClick={handleCreate}>Create Your Link <span style={{ marginLeft: '5px' }}>😎</span></button>
+          <p>Already have a link?<Link to='/login'>Login here</Link></p>
+        </div>}
 
-    </div>
+    </div><FAQs /></>
   )
 }
 

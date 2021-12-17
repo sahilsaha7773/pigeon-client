@@ -12,12 +12,45 @@
 .nav button {
   transition: all 0.3s ease-in-out;
 }
-
+.mobileContainer {
+  display: none;
+}
+.nav > i {
+  display: none !important;
+}
+.mobileContainer {
+  display: none;
+}
+.mnavitems {
+  display: none;
+}
 @media only screen and (max-width: 1200px){
   /*Tablets [601px -> 1200px]*/
 }
 @media only screen and (max-width: 600px){
 /*Big smartphones [426px -> 600px]*/
+  .mobileContainer {
+    width: 100%;
+    margin: auto;
+    box-shadow: 2px 2px 20px rgba(0,0,0,0.2);
+    color: white;
+    border-radius: 10px;
+  }
+  .mnavitems {
+    display: flex;
+    flex-direction: column;
+    
+    padding: 20px;
+  }
+  .mnavitems button {
+    margin-bottom: 10px;
+  }
+  .navItems {
+    display: none;
+  }
+  .nav > i {
+    display: block !important;
+  }
   .nav {
     justify-content: space-between !important;
   }

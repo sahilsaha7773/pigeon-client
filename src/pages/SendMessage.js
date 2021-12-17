@@ -1,6 +1,7 @@
 import React from 'react'
 import { useNavigate, useParams } from 'react-router-dom';
 import { SyncLoader } from 'react-spinners';
+import FAQs from '../components/FAQs';
 import styles from '../styles/sendMsg.module.css';
 import apiConfig from '../utils/apiConfig';
 
@@ -68,6 +69,7 @@ function SendMessage() {
       <div className={styles.form}>
         <h2>This website is just for fun. Do not go out of your way to spread hate.🙅‍♂️🙅‍♀️</h2>
       </div>
+      <FAQs />
     </div>
   )
 }
